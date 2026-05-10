@@ -13,12 +13,6 @@ dependencies {
     implementation(project(":common"))
 }
 
-fabricApi {
-    configureDataGeneration {
-        client = true
-    }
-}
-
 tasks {
     jar {
         from(project(":common").sourceSets.main.get().output)
