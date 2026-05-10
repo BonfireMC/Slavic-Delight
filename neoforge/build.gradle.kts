@@ -33,3 +33,11 @@ tasks {
         from(project(":common").sourceSets.main.get().output)
     }
 }
+
+sourceSets {
+    main {
+        resources {
+            srcDir(project(":common").file("src/main/resources"))
+        }
+    }
+}

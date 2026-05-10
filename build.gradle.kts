@@ -14,10 +14,6 @@ allprojects {
     version = "${rootProject.libs.versions.minecraft.get()}-$modVersion"
     group = "ua.bonfiremc"
 
-    base {
-        archivesName = "SlavicDelight-${project.name.capitalized()}"
-    }
-
     repositories {
         mavenCentral()
     }
@@ -33,6 +29,10 @@ allprojects {
 }
 
 subprojects {
+    base {
+        archivesName = "SlavicDelight-${project.name.capitalized()}"
+    }
+
     tasks {
         processResources {
             val minecraftVersion: String = libs.versions.minecraft.get()
