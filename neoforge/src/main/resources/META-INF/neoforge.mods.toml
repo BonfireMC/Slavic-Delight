@@ -1,0 +1,31 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[0,)"
+license = "LGPL-3.0"
+
+[[mods]]
+modId = "slavicdelight"
+version = "${version}"
+displayName = "Slavic Delight"
+logoFile = "icon.png"
+authors = "Bonfire Studios"
+description = '''lol'''
+
+[[mixins]]
+config = "slavicdelight-common.mixins.json"
+
+[[mixins]]
+config = "slavicdelight-neoforge.mixins.json"
+
+[[dependencies.slavicdelight]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.slavicdelight]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${minecraft_version}]"
+ordering = "NONE"
+side = "BOTH"
