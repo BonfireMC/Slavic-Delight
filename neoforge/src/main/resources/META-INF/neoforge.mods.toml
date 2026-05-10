@@ -33,6 +33,6 @@ side = "BOTH"
 [[dependencies.slavicdelight]]
 modId = "farmersdelight"
 type = "required"
-versionRange = "[${farmersdelight_neoforge_version},)"
+versionRange = "[1.3.1,)"
 ordering = "NONE"
 side = "BOTH"

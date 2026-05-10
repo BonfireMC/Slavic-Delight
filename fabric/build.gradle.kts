@@ -3,7 +3,7 @@ plugins {
 }
 
 repositories {
-    maven("https://maven.greenhouse.lgbt/releases/")
+    maven("https://api.modrinth.com/maven")
 }
 
 dependencies {
@@ -14,7 +14,7 @@ dependencies {
     modImplementation(libs.fabric.kotlin)
     modImplementation(libs.fabric.api)
 
-    implementation(libs.farmersdelight.fabric) {
+    modImplementation(libs.farmersdelight.fabric) {
         exclude(group = "net.fabricmc")
     }
 
