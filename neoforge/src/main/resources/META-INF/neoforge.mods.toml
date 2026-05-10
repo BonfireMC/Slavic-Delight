@@ -29,3 +29,10 @@ type = "required"
 versionRange = "[${minecraft_version}]"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.slavicdelight]]
+modId = "farmersdelight"
+type = "required"
+versionRange = "[${farmersdelight_neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"

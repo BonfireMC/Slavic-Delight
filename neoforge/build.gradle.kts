@@ -18,10 +18,12 @@ neoForge {
 
 repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge")
+    maven("https://api.modrinth.com/maven")
 }
 
 dependencies {
     implementation(libs.kotlinforforge)
+    implementation(libs.farmersdelight.neoforge)
 
     implementation(project(":common"))
 }
