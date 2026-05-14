@@ -16,6 +16,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven("https://api.modrinth.com/maven")
     }
 
     java {
@@ -53,6 +54,18 @@ subprojects {
 
         jar {
             from(rootProject.file("LICENSE"))
+        }
+    }
+
+    if (project.name != "common") {
+        tasks {
+            jar {
+                from(project(":common").sourceSets.main.get().output)
+            }
+
+            processResources {
+                from(project(":common").sourceSets.main.get().resources)
+            }
         }
     }
 }

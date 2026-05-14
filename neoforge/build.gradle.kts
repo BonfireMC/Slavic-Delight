@@ -18,7 +18,6 @@ neoForge {
 
 repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge")
-    maven("https://api.modrinth.com/maven")
 }
 
 dependencies {
@@ -26,18 +25,4 @@ dependencies {
     implementation(libs.farmersdelight.neoforge)
 
     implementation(project(":common"))
-}
-
-tasks {
-    jar {
-        from(project(":common").sourceSets.main.get().output)
-    }
-}
-
-sourceSets {
-    main {
-        resources {
-            srcDir(project(":common").file("src/main/resources"))
-        }
-    }
 }

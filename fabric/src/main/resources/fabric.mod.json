@@ -17,6 +17,12 @@
                 "value": "ua.bonfiremc.slavicdelight.SlavicDelightFabric",
                 "adapter": "kotlin"
             }
+        ],
+        "fabric-datagen": [
+            {
+                "value": "ua.bonfiremc.slavicdelight.datagen.SlavicDelightFabricDatagen",
+                "adapter": "kotlin"
+            }
         ]
     },
     "mixins": [

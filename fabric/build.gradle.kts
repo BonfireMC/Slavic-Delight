@@ -3,7 +3,7 @@ plugins {
 }
 
 repositories {
-    maven("https://api.modrinth.com/maven")
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -18,11 +18,17 @@ dependencies {
         exclude(group = "net.fabricmc")
     }
 
+    // temporary fix for farmer's delight refabricated
+    runtimeOnly("com.github.Chocohead:Fabric-ASM:v2.3") {
+        exclude(group = "net.fabricmc.fabric-api")
+    }
+
     implementation(project(":common"))
 }
 
-tasks {
-    jar {
-        from(project(":common").sourceSets.main.get().output)
+fabricApi {
+    configureDataGeneration {
+        client = true
+        outputDirectory = project(":common").file("src/generated/resources")
     }
 }
