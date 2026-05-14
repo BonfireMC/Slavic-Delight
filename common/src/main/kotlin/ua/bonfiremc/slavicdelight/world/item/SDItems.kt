@@ -14,7 +14,7 @@ object SDItems {
             saturationModifier(0.5f)
             usingConvertsTo(Items.BOWL)
 
-            SD_VATRA.adapter.setFoodEffect(this, 1f) { FoodValues.nourishment(1200) }
+            SD_VATRA.setFoodEffect(this, 1f) { FoodValues.nourishment(1200) }
         }
     }
 

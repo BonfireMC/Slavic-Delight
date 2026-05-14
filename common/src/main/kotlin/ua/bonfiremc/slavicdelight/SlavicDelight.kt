@@ -2,7 +2,6 @@ package ua.bonfiremc.slavicdelight
 
 import net.minecraft.resources.ResourceLocation
 import ua.bonfiremc.slavicdelight.world.item.SDItems
-import ua.bonfiremc.vatra.VatraAdapter
 import ua.bonfiremc.vatra.VatraInstance
 
 object SlavicDelight {
@@ -10,10 +9,13 @@ object SlavicDelight {
 
     lateinit var SD_VATRA: VatraInstance
 
-    fun initialize(adapter: VatraAdapter) {
-        SD_VATRA = adapter.createInstance(MOD_ID)
+    fun <T : VatraInstance> initialize(instanceBuilder: (String) -> T): T {
+        SD_VATRA = instanceBuilder(MOD_ID)
 
         SDItems.touch()
+
+        @Suppress("UNCHECKED_CAST")
+        return SD_VATRA as T
     }
 
     fun id(path: String): ResourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, path)

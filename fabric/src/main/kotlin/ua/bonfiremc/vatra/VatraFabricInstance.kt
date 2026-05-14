@@ -14,7 +14,7 @@ import ua.bonfiremc.vatra.datagen.VatraFabricENUSProvider
 import ua.bonfiremc.vatra.datagen.VatraFabricModelProvider
 import ua.bonfiremc.vatra.item.ItemBuilder
 
-object VatraFabricAdapter : VatraAdapter {
+class VatraFabricInstance(modId: String) : VatraInstance(modId) {
     override fun registerItem(vatra: VatraInstance, constructor: (Item.Properties) -> Item, builder: ItemBuilder): Holder<Item> {
         val item: Item = Registry.register(
             BuiltInRegistries.ITEM,
