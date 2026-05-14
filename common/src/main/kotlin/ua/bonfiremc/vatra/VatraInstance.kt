@@ -6,7 +6,7 @@ import net.minecraft.data.models.model.ModelTemplate
 import net.minecraft.world.item.Item
 import ua.bonfiremc.vatra.item.ItemBuilder
 
-class VatraInstance(val modId: String, val adapter: VatraAdapter) {
+open class VatraInstance(val modId: String, val adapter: VatraAdapter) {
     val langMap: MutableMap<String, String> = mutableMapOf()
     val itemModelMap: MutableMap<Holder<Item>, ModelTemplate> = mutableMapOf()
 

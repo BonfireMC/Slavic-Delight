@@ -7,6 +7,8 @@ import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.data.DataGenerator
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.effect.MobEffectInstance
+import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
 import ua.bonfiremc.vatra.datagen.VatraFabricENUSProvider
 import ua.bonfiremc.vatra.datagen.VatraFabricModelProvider
@@ -17,11 +19,7 @@ object VatraFabricAdapter : VatraAdapter {
         val item: Item = Registry.register(
             BuiltInRegistries.ITEM,
             ResourceLocation.fromNamespaceAndPath(vatra.modId, builder.id),
-            constructor(Item.Properties().apply {
-                if (builder.food != null) {
-                    food(builder.food!!)
-                }
-            })
+            constructor(builder.properties())
         )
 
         return Holder.direct(item)
@@ -37,5 +35,9 @@ object VatraFabricAdapter : VatraAdapter {
         if (vatra.itemModelMap.isNotEmpty()) {
             pack.addProvider { output: FabricDataOutput -> VatraFabricModelProvider(vatra, output) }
         }
+    }
+
+    override fun setFoodEffect(builder: FoodProperties.Builder, probability: Float, getter: () -> MobEffectInstance) {
+        builder.effect(getter(), probability)
     }
 }

@@ -1,5 +1,7 @@
 @file:Suppress("AvoidApplyPluginMethod")
 
+// TODO: clean this bullshit
+
 import org.gradle.internal.extensions.stdlib.capitalized
 
 plugins {
@@ -61,6 +63,11 @@ subprojects {
         tasks {
             jar {
                 from(project(":common").sourceSets.main.get().output)
+                from(project(":common").file("src/generated/resources")) {
+                    exclude(".cache")
+                }
+
+                duplicatesStrategy = DuplicatesStrategy.EXCLUDE
             }
 
             processResources {

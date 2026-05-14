@@ -11,7 +11,7 @@ object SlavicDelight {
     lateinit var SD_VATRA: VatraInstance
 
     fun initialize(adapter: VatraAdapter) {
-        SD_VATRA = VatraInstance(MOD_ID, adapter)
+        SD_VATRA = adapter.createInstance(MOD_ID)
 
         SDItems.touch()
     }
