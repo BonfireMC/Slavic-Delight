@@ -1,3 +1,5 @@
+// i'm fucking HATE neoforge
+
 plugins {
     alias(libs.plugins.neoforged.moddev)
 }
@@ -8,10 +10,19 @@ neoForge {
     runs {
         create("client") {
             client()
+            systemProperty("neoforge.enabledGameTestNamespaces", "slavicdelight")
         }
 
         create("server") {
             server()
+            systemProperty("neoforge.enabledGameTestNamespaces", "slavicdelight")
+        }
+    }
+
+    mods {
+        register("slavicdelight") {
+            sourceSet(sourceSets["main"])
+            sourceSet(project(":common").sourceSets["main"])
         }
     }
 }

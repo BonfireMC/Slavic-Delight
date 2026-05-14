@@ -1,7 +1,5 @@
 @file:Suppress("AvoidApplyPluginMethod")
 
-// TODO: clean this bullshit
-
 import org.gradle.internal.extensions.stdlib.capitalized
 
 plugins {
@@ -62,8 +60,7 @@ subprojects {
     if (project.name != "common") {
         tasks {
             jar {
-                from(project(":common").sourceSets.main.get().output)
-                from(project(":common").file("src/generated/resources")) {
+                from(project(":common").sourceSets.main.get().output) {
                     exclude(".cache")
                 }
 
@@ -71,7 +68,7 @@ subprojects {
             }
 
             processResources {
-                from(project(":common").sourceSets.main.get().resources)
+                from(project(":common").file("src/main/resources"))
             }
         }
     }

@@ -9,3 +9,11 @@ neoForge {
 dependencies {
     compileOnly(libs.farmersdelight.neoforge)
 }
+
+sourceSets {
+    main {
+        resources {
+            srcDir("src/generated/resources")
+        }
+    }
+}
