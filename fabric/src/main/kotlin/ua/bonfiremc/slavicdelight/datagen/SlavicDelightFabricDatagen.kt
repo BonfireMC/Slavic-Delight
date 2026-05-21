@@ -8,6 +8,6 @@ object SlavicDelightFabricDatagen : DataGeneratorEntrypoint {
     override fun onInitializeDataGenerator(datagen: FabricDataGenerator) {
         val pack: FabricDataGenerator.Pack = datagen.createPack()
 
-        SlavicDelight.SD_VATRA.addProviders(pack)
+        SlavicDelight.SD_VATRA.registerProviders(pack)
     }
 }

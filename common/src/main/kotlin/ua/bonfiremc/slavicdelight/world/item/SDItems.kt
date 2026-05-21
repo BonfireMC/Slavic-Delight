@@ -8,7 +8,9 @@ import vectorwing.farmersdelight.common.FoodValues
 import vectorwing.farmersdelight.common.item.ConsumableItem
 
 object SDItems {
-    val BORSHCH: Holder<Item> = SD_VATRA.item("borshch", { props -> ConsumableItem(props, true) }) {
+    private val CONSUMABLE_ITEM: (Item.Properties) -> Item = { props -> ConsumableItem(props, true) }
+
+    val BORSHCH: Holder<Item> = SD_VATRA.item("borshch", CONSUMABLE_ITEM) {
         food {
             nutrition(8)
             saturationModifier(0.5f)

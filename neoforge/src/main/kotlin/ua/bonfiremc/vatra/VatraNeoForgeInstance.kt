@@ -7,7 +7,7 @@ import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.Item
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.neoforge.registries.DeferredRegister
-import ua.bonfiremc.vatra.item.ItemBuilder
+import ua.bonfiremc.vatra.builder.item.ItemBuilder
 
 class VatraNeoForgeInstance(modId: String) : VatraInstance(modId) {
     val items: DeferredRegister.Items by lazy {
@@ -18,13 +18,11 @@ class VatraNeoForgeInstance(modId: String) : VatraInstance(modId) {
         items.register(bus)
     }
 
-    override fun registerItem(vatra: VatraInstance, constructor: (Item.Properties) -> Item, builder: ItemBuilder): Holder<Item> {
-        if (vatra !is VatraNeoForgeInstance) throw IllegalArgumentException()
-
-        return vatra.items.registerItem(builder.id, constructor, builder.properties())
+    override fun registerItem(constructor: (Item.Properties) -> Item, builder: ItemBuilder): Holder<Item> {
+        return items.registerItem(builder.id, constructor, builder.properties())
     }
 
-    override fun registerProviders(vatra: VatraInstance, pack: DataGenerator.PackGenerator) {
+    override fun registerProviders(pack: DataGenerator.PackGenerator) {
         throw UnsupportedOperationException("i use fabric datagen btw")
     }
 
